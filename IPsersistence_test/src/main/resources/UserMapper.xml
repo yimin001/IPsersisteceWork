@@ -1,0 +1,31 @@
+<mapper namespace="com.theodore.dao.UserMapper">
+
+    <!-- sql语句的唯一标识 namespace.id组成 statementId-->
+    <select id="selectAll" resultType="com.theodore.pojo.User">
+        select * from user
+    </select>
+
+    <!--
+        User user = new User()
+        user.setId(1)
+        user.setUserName("张三")
+    -->
+    <select id="selectOne" paramterType="com.theodore.pojo.User" resultType="com.theodore.pojo.User">
+        select * from user where id = #{id} and username = #{username}
+    </select>
+
+    <insert id="insert" paramterType="com.theodore.pojo.User">
+        insert into user values( #{id}, #{username})
+    </insert>
+
+    <update id="update" paramterType="com.theodore.pojo.User" >
+        update user set username = #{username} where id = #{id}
+    </update>
+
+    <delete id="delete" paramterType="com.theodore.pojo.User" >
+        delete from user where id = #{id} and username = #{username}
+    </delete>
+
+
+
+</mapper>
